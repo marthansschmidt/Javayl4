@@ -4,26 +4,6 @@
 
 Lihtne Spring Boot CRUD veebirakendus kasutajate lisamiseks, kuvamiseks, muutmiseks ja kustutamiseks. Kasutajaliides on eestikeelne ning andmed salvestatakse MySQL andmebaasi. Hibernate loob ja uuendab `users` tabelit automaatselt. MySQL-i salvestatud andmed jäävad alles ka pärast rakenduse taaskäivitamist.
 
-## Õppematerjal ja vastavus videoõpetusele
-
-Õppematerjal: [Spring Boot CRUD Tutorial with IntelliJ IDEA, MySQL, JPA, Hibernate, Thymeleaf and Bootstrap](https://www.youtube.com/watch?v=u8a25mQcMOI), autor **Coding with Nam**.
-
-Video avalikus kirjelduses ja peatükkides käsitletud teemad on projektis kaetud järgmiselt:
-
-| Video peatüki algus | Teema | Teostus projektis |
-| --- | --- | --- |
-| 03:57 | Projekti loomine ja seadistamine | Maven, `pom.xml`, `UserManagementApplication` |
-| 10:38 | Andmebaasiühendus | `application.properties`, MySQL 8.4 ja `compose.yaml` |
-| 12:52 ja 22:40 | Avaleht ja Bootstrap | `HomeController`, Thymeleafi lehed, Bootstrap 5 |
-| 28:57 | Kasutaja andmekiht | `User`, `UserRepository`, Spring Data JPA ja Hibernate |
-| 38:27 | Andmekihi automaattestid | `UserRepositoryTest`, `@DataJpaTest`, AssertJ ja H2 |
-| 56:07 | Kasutajate nimekiri | `GET /users`, `users.html` |
-| 1:09:35 | Kasutaja lisamine | `GET /users/new`, `POST /users/save`, `user-form.html` |
-| 1:32:39 | Kasutaja muutmine | `GET /users/edit/{id}` ja olemasoleva kirje salvestamine |
-| 1:43:26 | Kasutaja kustutamine | `GET /users/delete/{id}` |
-
-Võrdlus põhineb video avalikul kirjeldusel ja peatükkide loetelul; kogu video koodi rida-realt vastavust pole kinnitatud. Teostus järgib koolitöö kirjalikke nõudeid: andmemudelis on `id`, `firstName`, `lastName` ja `email`, kasutajaliides on eestikeelne ning lisatud on vormivalideerimine, teenuse ja kontrolleri testid. Video kirjelduses nimetatud JUnit 5 asemel kasutatakse olemasoleva Spring Boot 4.1.1-ga sobivat JUnit Jupiter 6. Video iseseisev läbivaatamine ja koodi mõistmine jäävad õppija ülesandeks.
-
 ## Funktsionaalsus
 
 - Kasutaja lisamine: eesnimi, perekonnanimi ja e-post.
@@ -98,7 +78,7 @@ src/test/resources/application-test.properties
 3. Compose'iga käivitamisel pole keskkonnamuutujaid vaja: Springi vaikimisi ühendus on `jdbc:mysql://localhost:3306/user_management`, kasutajanimi `appuser` ja parool `apppassword`. Enda MySQL serveri puhul seadista vajadusel keskkonnamuutujad.
 
    | Muutuja | Tähendus |
-   | --- | --- |
+      | --- | --- |
    | `DB_URL` | MySQL-i JDBC ühenduse URL |
    | `DB_USERNAME` | MySQL-i kasutajanimi |
    | `DB_PASSWORD` | MySQL-i parool |
@@ -169,13 +149,3 @@ Compose'iga käivitatud MySQL 8.4 vastu kontrolliti päris HTTP-päringutega lis
 3. Vajuta **Muuda**, muuda e-posti aadressi ning salvesta. Tabelis ja MySQL-is peab olema uus aadress.
 4. Peata ja käivita rakendus uuesti. Kasutaja peab endiselt tabelis olema.
 5. Vajuta **Kustuta** ja kinnita kustutamine. Kasutaja peab kaduma nii veebilehelt kui ka MySQL-ist.
-
-## Enne GitHubi üleslaadimist
-
-Failides on ainult kohaliku Docker'i näidisparoolid; päris andmebaasi parooli ei ole lisatud. `.gitignore` välistab `target/`, `.idea/`, `*.iml` ja `.env` failid. Laadi üles lähtekood, testid, README, `compose.yaml`, `pom.xml`, Maven Wrapperi skriptid ja `.mvn/wrapper/maven-wrapper.properties`. Kontrolli, et enda lisatud failides ei oleks päris paroole.
-
-## Töö esitamine
-
-1. Loo GitHubis projekti jaoks repositoorium ja laadi sinna projekt koos README ning testidega.
-2. Kontrolli GitHubis, et vajalikud lähtefailid ja käivitusjuhised on olemas ning õpetajal on repositooriumile ligipääs.
-3. Esita Moodle'is GitHubi repositooriumi link.
